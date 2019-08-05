@@ -1,0 +1,236 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>E-commerce shoping cart</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>E-commerce</a>
+            </li>
+            <li class="active">
+                <strong>Shoping cart</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<%# binding.pry %>
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+    <div class="col-md-9">
+
+        <div class="ibox">
+            <div class="ibox-title">
+                <span class="pull-right">(<strong><%= @item_quantity %> </strong>) items</span>
+                <h5>Items in your cart</h5>
+            </div>
+            <div class="ibox-content">
+
+
+                <div class="table-responsive">
+                    <table class="table shoping-cart-table">
+
+                        <tbody>
+                        
+                        	<!-- <td>item detail</td>
+                        	<td>price</td>
+                        	<td>quantity</td>
+                        	
+                        	<td>total price</td> -->
+                            <%# binding.pry %>
+									
+							<% @cart_item.each do |item|%>
+
+                      	 <tr>
+                            <td width="90">
+                                <div class="cart-product-imitation">
+                                </div>
+                            </td>
+                            <td class="desc">
+                                <h3>product detail</h3>
+                  					 <%= item.product.name%>
+
+                  				<h3>description</h3>
+                  					 <%= item.product.description%>
+
+                                <div class="m-t-sm">
+                                    <a href="#" class="text-muted"><i class="fa fa-gift"></i> Add gift package</a>
+                                    |
+                                   <!--  <a href="#" class="text-muted"><i class="fa fa-trash">Remove Item</i>
+                                    </a> -->
+                                    <%= link_to 'remove', cart_path(item) %>
+                                        
+                                    </i>
+                                    	 </a>
+                                </div>
+                            </td>
+
+                            <td>
+                            	<h4>price<h4><%= item.product.price%>
+                            		
+                            </td>
+                            <td >
+                               <div class="col-sm-10"><h4>quantity</h4>
+                               	<%#= number_field :quantity, value: item.quantity, class: "form-control", placeholder:"1" %>
+                               	<%= number_field_tag(:quantity, value = item.quantity,class: "form-control my-quantity", min: 1, id: item.id)%>
+                               </div>
+                           
+                           
+                             </td>
+
+                            <td>
+                                <h4>total_price
+                                       <%# binding.pry %>
+                                    <%= item.price*item.quantity if item.price.present? %>
+                                    <%#= @item_price %>
+                                </h4>
+                            </td>
+                            
+                        </tr>
+                        </tbody>
+                        <%end%>
+                    </table>
+                </div>
+
+            </div>
+            
+            
+            <div class="ibox-content">
+
+                <button class="btn btn-primary pull-right"><i class="fa fa fa"></i><%= link_to 'Checkout', new_address_path %></button>
+                <button class="btn btn-white"><i class="fa fa-arrow-left"></i> <%= link_to 'Continue shopping', products_path %></button>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Cart Summary</h5>
+            </div>
+            <div class="ibox-content">
+                            <span>
+                                Total prices
+                            </span>
+                <h2 class="font-bold" id="total_cart_item_amount">
+                    <%= @item_price= @cart_item.map(&:price).sum %>
+                </h2>
+
+                <hr/>
+                            <span class="text-muted small">
+                                *For United States, France and Germany applicable sales tax will be applied
+                            </span>
+                <div class="m-t-sm">
+                    <div class="btn-group">
+                        <button class="btn btn-primary"><i class="fa fa fa"></i><%= link_to 'Checkout', new_address_path %></button>
+                        <button class="btn btn-blue"><%= link_to 'Cancel', products_path %></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Support</h5>
+            </div>
+            <div class="ibox-content text-center">
+
+
+
+                <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
+                            <span class="small">
+                                Please contact with us if you have any questions. We are avalible 24h.
+                            </span>
+
+
+            </div>
+        </div>
+
+        <div class="ibox">
+            <div class="ibox-content">
+
+                <p class="font-bold">
+                    Other products you may be interested
+                </p>
+
+                <hr/>
+                <div>
+                    <a href="#" class="product-name"> Product 1</a>
+                    <div class="small m-t-xs">
+                        Many desktop publishing packages and web page editors now.
+                    </div>
+                    <div class="m-t text-righ">
+
+                        <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                    </div>
+                </div>
+                <hr/>
+                <div>
+                    <a href="#" class="product-name"> Product 2</a>
+                    <div class="small m-t-xs">
+                        Many desktop publishing packages and web page editors now.
+                    </div>
+                    <div class="m-t text-righ">
+
+                        <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+</div>
+ 
+<script type="text/javascript">
+	$('input[type="number"]').change(function (event) {
+
+
+		event.preventDefault();
+    if (this.getAttribute('value') === this.value) {
+        $(this).data('lastvalue', this.value);
+    } else {
+        // console.log(this.value < $(this).data('lastvalue') ? 'decrement' : 'increment');
+        if (this.value < $(this).data('lastvalue')) {
+        	console.log('decrement')
+          window.location = "/carts/cart_item/increse_decrease/"+this.getAttribute('id')+"/decrement"
+        } else {
+        	console.log('increment')
+          window.location = "/carts/cart_item/increse_decrease/"+this.getAttribute('id')+"/increment"
+        }
+        console.log(this.getAttribute('id'))
+
+        $(this).data('lastvalue', this.value);
+ 
+
+    }
+}).change();
+</script> 
+
+
+<!-- <script type="text/javascript">
+    $('.my-quantity').change(function (event) {
+        $.ajax({
+          type: "GET", 
+          url: "/carts/cart_item/increse_decrease/" +this.getAttribute('id')+,
+          data: {id : "cart_item_id", quantity : "item.quantity"},
+          success: function(data){
+            $("#total_cart_item_amount").html(data["total"]);
+          }
+        })
+    });
+
+</script>
+
+ -->
+

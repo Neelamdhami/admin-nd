@@ -1,0 +1,119 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>product details</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a>E-commerce</a>
+            </li>
+            <li class="active">
+                <strong>Product </strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="tabs-container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#tab-1"> address</a></li>
+                <li class=""><a data-toggle="tab" href="#tab-2"> review_order</a></li>
+                <li class=""><a data-toggle="tab" href="#tab-3"> make payment</a></li>
+                
+            </ul>
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane active">
+                    <div class="panel-body">
+
+                        <fieldset class="form-horizontal">
+                            <%= form_for(@address) do |f| %>
+                                <% if @address.errors.any? %>
+                                <div id="error_explanation">
+                                <h2><%= pluralize(@address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+                                <ul>
+                                <% @address.errors.full_messages.each do |message| %>
+                                <li><%= message %></li>
+                                <% end %>
+                                </ul>
+                                </div>
+                                <% end %>
+
+                                   <div class="form-group"><label class="col-sm-2 control-label">Name:</label>
+                                    <div class="col-sm-10"><%= f.text_field :name, class: "form-control", placeholder:"enter your name"  %></div>
+                                  </div> 
+                                <div class="form-group"><label class="col-sm-2 control-label">pincode:</label>
+                                   <div class="col-sm-10"><%= f.text_field :pincode, class: "form-control", placeholder:"enter ur pincode" %></div>
+                                  </div>
+
+                                   <div class="form-group"><label class="col-sm-2 control-label">house_no:</label>
+                                 <div class="col-sm-10"> <%= f.text_field :house_no, class: "form-control", placeholder:"enter ur house_no" %></div>
+                                  </div>
+                                  <div class="form-group"><label class="col-sm-2 control-label">city:</label>                        
+                                    <div class="col-sm-10"> <%= f.text_field :city, class: "form-control", placeholder:"city" %></div>
+                                  </div>
+                                  <div class="form-group"><label class="col-sm-2 control-label">state:</label>
+                                   <div class="col-sm-10"> <%= f.text_field :state, class: "form-control", placeholder:"state" %></div>
+                                  </div>
+                                  <div class="form-group"><label class="col-sm-2 control-label">mobile_no:</label>
+                                    <div class="col-sm-10"><%= f.number_field :mobile_no, class: "form-control", placeholder:"mobile_no" %></div>
+                                  </div>
+                                 
+                                  <div class="actions">
+                                   <div > <%= f.submit %></div>
+                                  </div>
+                                <% end %>
+                        </fieldset>
+
+                    </div>
+                </div>
+               
+              </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+ 
+<div class="field">
+
+   
+  <% @addresses.each do |address|  %>
+   
+    <p><%#= radio_button_tag(:review_order, "s") %>
+
+      <%= address.full_address %></p>
+      <button class="btn btn-blue">
+        <%= link_to 'select address', review_order_checkouts_path(address_id: address.id) %></button>
+    <td><%= link_to 'Show', address_path(address) %></td>
+      <td><%= link_to 'Edit', edit_address_path(address) %></td>
+      <td><%= link_to 'Destroy', address_destroy_path(address),
+
+              { confirm: 'Are you sure?' } %></td>
+   <% end %>
+
+
+  </div>
+
+  <div >
+    
+  </div>
+ 
+
+
+
+
+
+
+
+
+
+
+

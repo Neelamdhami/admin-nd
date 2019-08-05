@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,7 @@
 </head>
 <body>
 
+
 <!-- Skin configuration box -->
 <!-- <%= render 'layouts/skinconfig' %> -->
 
@@ -37,6 +39,19 @@
             <%= render 'layouts/topnavbar' %>
 
             <!-- Main view  -->
+            <% if user_signed_in? %>
+    <li>
+    <%#= link_to('Logout', users_sign_out_path) %> 
+
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Login', new_user_session_path) %> 
+    
+    </li>
+
+  <% end %>
+
             <%= yield %>
 
             <!-- Footer -->
@@ -56,7 +71,7 @@
 
     <!-- Include javascript per-view -->
     <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
-    <%= yield :javascript %>
+      <%= yield :javascript %>
 
 </body>
 </html>

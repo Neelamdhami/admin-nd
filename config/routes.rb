@@ -1,5 +1,40 @@
 Myapp::Application.routes.draw do
+  resources :carts do
+    collection do
+    get 'add_to_cart_item/:product_id' => 'carts#add_to_cart_item', as: :add_to_cart_item
+    get 'cart_item' => 'carts#cart_item', as: :cart_item
 
+    get 'cart_item/increse_decrease/:cart_item_id/:status' => 'carts#increse_decrease_quantity', as: :increse_decrease_quantity
+    get 'delete_cart_item'
+   
+  end
+  end
+  devise_for :users
+  devise_scope :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  resources :images
+  resources :discounts
+  resources :data
+  resources :products do
+   
+  end
+
+  resources :addresses
+  resources :checkouts do 
+    collection do
+
+      get 'review_order' => 'checkouts#review_order', as: :review_order
+      get 'make_payment' => 'checkouts#make_payment', as: :make_payment
+      get 'make_order' => 'checkouts#make_order', as: :my_order
+      get 'review_order/increase_decrease/:review_order_id/:status' => 'checkouts#increase_decrease_quantityy', as: :increase_decrease_quantityy
+    end
+  end
+get 'delete/address/:address_id', :to => 'addresses#addressdelete', as: :address_destroy
+  
+
+  resources :blogs
   # You can have the root of your site routed with "root"
   root to: 'dashboards#dashboard_1'
 
@@ -10,6 +45,7 @@ Myapp::Application.routes.draw do
   get "dashboards/dashboard_4"
   get "dashboards/dashboard_4_1"
   get "dashboards/dashboard_5"
+
 
   get "layoutsoptions/index"
   get "layoutsoptions/off_canvas"
@@ -98,6 +134,7 @@ Myapp::Application.routes.draw do
   get "miscellaneous/truncate"
   get "miscellaneous/i18support"
 
+
   get "uielements/typography"
   get "uielements/icons"
   get "uielements/draggable_panels"
@@ -131,5 +168,20 @@ Myapp::Application.routes.draw do
   get "cssanimations/index"
 
   get "landing/index"
+
+  get 'delete/my_products/:my_id', :to => 'products#delete', as: :ab_destroy
+
+  get 'delete/my_data/:my_data_id', :to => 'data#datadelete', as: :aa_destroy
+
+  get 'delete/my_discount/:my_discount_id', :to => 'discounts#ddelete', as: :ac_destroy
+
+  get 'delete/my_image/:image_id', :to => 'images#image_delete', as: :image_destroy
+
+  get 'delete/my_cart/:cart_id', :to => 'carts#cart_delete', as: :cart_destroy
+
+ # get 'delete/:cartitem_id', :to => 'carts#cartitem_destroy', as: :cartitem_destroy
+
+ 
+
 
 end

@@ -1,0 +1,34 @@
+<%= form_for :address, url: address_path(@address), method: :patch do |form| %>
+
+<p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :pincode %><br>
+    <%= form.text_field :pincode %>
+  </p>
+  <p>
+    <%= form.label :house_no %><br>
+    <%= form.text_field :house_no %>
+  </p>
+  <p>
+    <%= form.label :city %><br>
+    <%= form.text_field :city %>
+  </p>
+  <p>
+    <%= form.label :state %><br>
+    <%= form.text_field :state %>
+  </p>
+  
+  <p>
+    <%= form.label :mobile_no %><br>
+    <%= form.text_field :mobile_no %>
+  </p>
+
+  <p>
+  <%= form.submit %>
+</p>
+
+  <% end %>
+ 

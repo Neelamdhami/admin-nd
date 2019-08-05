@@ -7,7 +7,7 @@ gem 'font-awesome-rails', '4.3.0.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
-
+gem 'tzinfo-data'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.4'
 
@@ -42,3 +42,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'pry-rails'
+gem 'carrierwave'
+gem 'devise'

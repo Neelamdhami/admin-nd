@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyString
+  location: MyString
+  Tax: MyString
+  class: MyString
+  quantity: 1
+  minimum_quantity: 1
+  sort_order: 1
+  status: MyString
+
+two:
+  model: MyString
+  location: MyString
+  Tax: MyString
+  class: MyString
+  quantity: 1
+  minimum_quantity: 1
+  sort_order: 1
+  status: MyString

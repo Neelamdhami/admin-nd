@@ -1,0 +1,179 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>E-commerce shoping cart</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>E-commerce</a>
+            </li>
+            <li class="active">
+                <strong>Shoping cart</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="tabs-container">
+            <ul class="nav nav-tabs">
+                <li class=""><a data-toggle="tab" href="#tab-1"> address</a></li>
+                <li class="active"><a data-toggle="tab" href="#tab-2"> review_order</a></li>
+                <li class=""><a data-toggle="tab" href="#tab-3"> make payment</a></li>
+                
+            </ul>
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane active">
+                    <div class="panel-body">
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+    <div class="col-md-9">
+
+
+        <div class="ibox">
+            <div class="ibox-title">
+                <span class="pull-right">(<strong><%= @item_quantity %> </strong>) items</span>
+                <h5>Items in your cart</h5>
+            </div>
+            <div class="ibox-content">
+
+
+                <div class="table-responsive">
+                    <table class="table shoping-cart-table">
+
+                        <tbody>
+                        
+                        	
+									
+							<% @cart_item.each do |item|%>
+							
+
+                      	 <tr>
+                            <td width="90">
+                                <div class="cart-product-imitation">
+                                </div>
+                            </td>
+                            <td class="desc">
+                                <h3>product detail</h3>
+                  					 <%= item.product.name%>
+
+                  				<h3>description</h3>
+                  					 <%= item.product.description%>
+
+                                <div class="m-t-sm">
+                                    <a href="#" class="text-muted"><i class="fa fa-gift"></i> Add gift package</a>
+                                    
+                                   
+                                    <%= link_to 'remove', cart_path(item) %>
+                                        
+                                    </i>
+                                    	 </a>
+                                </div>
+                            </td>
+
+                            <td>
+                            	<h4>price<h4><%= item.product.price%>
+                            		
+                            </td>
+                            <td >
+                               <div class="col-sm-10"><h4>quantity</h4>
+                               	
+                               	<%= number_field_tag(:quantity, value = item.quantity,class: "form-control my-quantity", min: 1, id: item.id)%>
+                               </div>
+                           
+                           
+                             </td>
+
+                            <td>
+                                <h4>total_price
+
+
+                                    <%= item.price * item.quantity if item.price.present? %>
+                                    
+                                </h4>
+                            </td>
+                            
+                        </tr>
+                        </tbody>
+                        <%end%>
+                    </table>
+                </div>
+
+            </div>
+            
+            
+            <div class="ibox-content">
+
+                <button class="btn btn-primary pull-right"><i class="fa fa fa"></i><%= link_to 'Checkout',make_payment_checkouts_path(address_id: @address) %></button>
+                <button class="btn btn-blue"><i class="fa fa-arrow-left"></i> <%= link_to 'Continue shopping', products_path %></button>
+                <button class="btn btn-blue"><%= link_to 'cancel', new_address_path %></button>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Cart Summary</h5>
+            </div>
+            <div class="ibox-content">
+                            <span>
+                                Total prices
+                            </span>
+                <h2 class="font-bold" id="total_cart_item_amount">
+                    <%= @item_price = @cart_item.map(&:price).sum%>
+                </h2>
+
+                <hr/>
+                            
+                <div class="m-t-sm">
+                    <div class="btn-group">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    $('input[type="number"]').change(function (event) {
+
+
+        event.preventDefault();
+    if (this.getAttribute('value') === this.value) {
+        $(this).data('lastvalue', this.value);
+    } else {
+        // console.log(this.value < $(this).data('lastvalue') ? 'decrement' : 'increment');
+        if (this.value < $(this).data('lastvalue')) {
+            console.log('decrement')
+          window.location = "/checkouts/review_order/increase_decrease/"+this.getAttribute('id')+"/decrement"
+        } else {
+            console.log('increment')
+          window.location = "/checkouts/review_order/increase_decrease/"+this.getAttribute('id')+"/increment"
+        }
+        console.log(this.getAttribute('id'))
+
+        $(this).data('lastvalue', this.value);
+ 
+
+    }
+}).change();
+</script> 
+
+    
+
+
+ 
+
+

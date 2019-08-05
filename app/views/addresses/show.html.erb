@@ -1,0 +1,28 @@
+<h1>show page</h1>
+
+<p>
+	<strong>name:</strong>
+	<%= @address.name %>
+</p>
+<p>
+	<strong>pincode:</strong>
+	<%= @address.pincode %>
+</p>
+<p>
+	<strong>house_no:</strong>
+	<%= @address.house_no %>
+</p>
+<p>
+	<strong>city:</strong>
+	<%= @address.city %>
+</p>
+
+<p>
+	<strong>state:</strong>
+	<%= @address.state %>
+</p>
+<p>
+	<strong>mobile_no:</strong>
+	<%= @address.mobile_no %>
+</p>
+<%= link_to "<< Back ", new_address_path %>

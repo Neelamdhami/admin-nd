@@ -1,0 +1,48 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>E-commerce shoping cart</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>E-commerce</a>
+            </li>
+            <li class="active">
+                <strong>Shoping cart</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+        
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="tabs-container">
+            <ul class="nav nav-tabs">
+                <li class=""><a data-toggle="tab" href="#tab-1"> address</a></li>
+                <li class=""><a data-toggle="tab" href="#tab-2"> review_order</a></li>
+                <li class="active"><a data-toggle="tab" href="#tab-3"> make payment</a></li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+<p>
+    <%= radio_button_tag(:select, "select") %>cash on delivery
+    <%= radio_button_tag(:select, "select") %>online payment
+</p>
+
+<button class="btn btn-red">
+    <%#= @cart.inspect%>
+    <%= link_to 'confirm', my_order_checkouts_path(@cart_items) %></button>
+
+
+
+<td> <%= link_to 'cancel', review_order_checkouts_path %></td>
+
+
+

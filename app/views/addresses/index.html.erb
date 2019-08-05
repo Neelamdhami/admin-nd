@@ -1,0 +1,31 @@
+<table>
+  <tr>
+    <th>name</th>
+    <th>pincode</th>
+    <th>house_no</th>
+    <th>city</th>
+    <th>state</th>
+    <th>mobile_no</th>
+  </tr>
+ 
+  <% @addresses.each do |address| %>
+  
+    <tr>
+      <td><%= address.name %></td>
+      <td><%= address.pincode %></td>
+      <td><%= address.house_no %></td>
+      <td><%= address.city %></td>
+      <td><%= address.state %></td>
+      <td><%= address.mobile_no %></td>
+
+      <td><%= link_to 'Show', address_path(address) %></td>
+      <td><%= link_to 'Edit', edit_address_path(address) %></td>
+      <td><%= link_to 'Destroy', address_destroy_path(address),
+
+              { confirm: 'Are you sure?' } %></td>
+
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'new page ', new_address_path %>

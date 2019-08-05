@@ -1,0 +1,75 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Products list</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a>E-commerce</a>
+            </li>
+            <li class="active">
+                <strong>Products list</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Products</h1>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-content">
+
+                <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                    <thead>
+                    <tr>
+
+                        <th data-toggle="true">group</th>
+                        <th data-hide="phone">quantity</th>
+                        <th data-hide="all">discount</th>
+                        <th data-hide="phone">date_start</th>
+                        <th data-hide="phone,tablet" >date_end</th>
+                        
+                        <th class="text-right" data-sort-ignore="true">Action</th>
+
+                    </tr>
+                    </thead>
+                        <tbody>
+    <% @discounts.each do |discount| %>
+      <tr>
+        <td><%= discount.group %></td>
+        <td><%= discount.quantity %></td>
+        <td><%= discount.discount %></td>
+        <td><%= discount.date_start %></td>
+        <td><%= discount.date_end %></td>
+        <td><%= link_to 'Show', discount %></td>
+        <td><%= link_to 'Edit', edit_discount_path(discount) %></td>
+        <td><%= link_to 'Destroy', ac_destroy_path(discount), 
+        data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<td><%#= link_to 'New Discount', new_discount_path %></td>
+<td><%= link_to 'New Product', new_product_path %></td>
+              </div>
+          </div>
+    </div>
+</div>
+<% content_for :javascript do %>
+<script type="text/javascript">
+$(function() {
+   $('.footable').footable();
+});
+</script>
+<% end %>
+

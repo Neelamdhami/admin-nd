@@ -108,12 +108,16 @@
                 </ul>
             </li>
 
+            
+                <%= link_to 'cart',  cart_item_carts_path(@cart_item) %>
 
             <li>
-                <a href="<%= url_for :controller => 'pages', :action => 'login_2' %>">
-                <i class="fa fa-sign-out"></i> Log out
+                <!-- <a href="<%#= url_for :controller => 'pages', :action => 'login_2' %>"> -->
+                 <%= link_to 'Logout', users_sign_out_path %>
+                
             </a>
         </li>
+                <%#= link_to 'my order', my_order_checkouts_path(@order) %>
 
             <li>
                 <a class="right-sidebar-toggle">

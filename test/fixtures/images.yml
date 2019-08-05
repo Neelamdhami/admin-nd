@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image_preview: MyString
+  image_url: MyString
+  sort_order: 1
+
+two:
+  image_preview: MyString
+  image_url: MyString
+  sort_order: 1

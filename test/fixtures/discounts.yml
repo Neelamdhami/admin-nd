@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group: MyString
+  quantity: 1
+  discount: 1
+  date_start: 1
+  date_end: 1
+
+two:
+  group: MyString
+  quantity: 1
+  discount: 1
+  date_start: 1
+  date_end: 1

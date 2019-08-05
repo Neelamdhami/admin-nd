@@ -1,0 +1,176 @@
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Products list</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a>E-commerce</a>
+            </li>
+            <li class="active">
+                <strong>Products list</strong>
+            </li>
+        </ol>
+    </div>
+  </div> 
+
+ <p id="notice"><%= notice %></p>
+<div>
+<!-- <p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+</div>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Meta tag title:</strong>
+  <%= @product.meta_tag_title %>
+</p>
+
+<p>
+  <strong>Meta tag description:</strong>
+  <%= @product.meta_tag_description %>
+</p>
+
+<p>
+  <strong>Meta tag keywords:</strong>
+  <%= @product.meta_tag_keywords %>
+</p>
+ 
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>-->
+
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox product-detail">
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="product-images">
+                            <div>
+                                <div class="image-imitation">
+                                    [IMAGE 1]
+                                </div>
+                            </div>
+                            <div>
+                                <div class="image-imitation">
+                                    [IMAGE 2]
+                                </div>
+                            </div>
+                              <div>
+                                <div class="image-imitation">
+                                    [IMAGE 3]
+                                </div>
+                              </div>
+                            </div>
+                            
+
+                    </div>
+                    <div class="col-md-7">
+
+                        
+                        <hr>
+                        <h4>Products name</h4>
+
+                        <div class="small text-muted">
+                            <%= @product.name %>
+                        </div>
+
+                        <h4>Price</h4>
+
+                        <div class="small text-muted">
+                            <%= @product.price %>
+                        </div>
+
+                        <h4>description</h4>
+
+                        <div class="small text-muted">
+                            <%= @product.description %>
+                        </div>
+
+                        <h4>meta_tag_title</h4>
+
+                        <div class="small text-muted">
+                            <%= @product.meta_tag_title %>
+                        </div>
+
+                        <h4>meta_tag_description</h4>
+
+                        <div class="small text-muted">
+                            <%= @product.meta_tag_description %>
+                        </div>
+
+                        <h4>meta_tag_keywords</h4>
+
+                        <div class="small text-muted">
+                            <%= @product.meta_tag_keywords %>
+                        </div>
+
+                        <div><%= link_to 'Edit', edit_product_path(@product) %> |
+                        <%= link_to 'Back', products_path %></div>
+
+
+                        <hr>
+
+                        <div>
+                            <div class="btn-group">
+                               <!--  <button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Add to cart</button> -->
+
+                               <%=link_to 'add to cart', add_to_cart_item_carts_path(@product),class: "btn btn-primary btn-sm"%>
+                                <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
+                                <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="ibox-footer">
+                            <span class="pull-right">
+                                Full stock - <i class="fa fa-clock-o"></i> 14.04.2016 10:04 pm
+                            </span>
+                The generated Lorem Ipsum is therefore always free
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(window).load(function() {
+
+    $('.product-images').slick({
+        dots: true
+    });
+
+});
+
+</script>
+
+<% end %>
+
+ 
+    
+
+
+

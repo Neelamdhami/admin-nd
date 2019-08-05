@@ -1,0 +1,193 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Products list</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a>E-commerce</a>
+            </li>
+            <li class="active">
+                <strong>Products list</strong>
+            </li>
+        </ol>
+    </div>
+  </div> 
+
+ <p id="notice"><%= notice %></p>
+<div>
+
+  <div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox product-detail">
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="product-images">
+                            <div>
+                                <div class="image-imitation">
+                                    [IMAGE 1]
+                                </div>
+                            </div>
+                            <div>
+                                <div class="image-imitation">
+                                    [IMAGE 2]
+                                </div>
+                            </div>
+                              <div>
+                                <div class="image-imitation">
+                                    [IMAGE 3]
+                                </div>
+                              </div>
+                            </div>
+                            
+
+                    </div>
+                    <div class="col-md-7">
+
+                        
+                        <hr>
+                        <h4>product_model</h4>
+
+                        <div class="small text-muted">
+                            <%= @datum.product_model %>
+                        </div>
+
+                        <h4>location</h4>
+
+                        <div class="small text-muted">
+                            <%= @datum.location %>
+                        </div>
+
+                        <h4>Tax</h4>
+
+                        <div class="small text-muted">
+                            <%= @datum.Tax %>
+                        </div>
+
+                        <h4>product_class</h4>
+
+                        <div class="small text-muted">
+                            <%= @datum.product_class %>
+                        </div>
+
+                        <h4>quantity</h4>
+
+                        <div class="small text-muted">
+                            <%= @datum.quantity %>
+                        </div>
+
+                        <h4>minimum_quantity</h4>
+
+                        <div class="small text-muted">
+                            <%= @datum.minimum_quantity %>
+                        </div>
+
+                        <h4>sort_order</h4>
+
+                        <div class="small text-muted">
+                        <%= @datum.sort_order %>
+                            
+                        </div>
+
+                        <h4>status</h4>
+
+                        <div class="small text-muted">
+                            <%= @datum.status %>
+                        </div>
+
+                        <div><%= link_to 'Edit', edit_datum_path(@datum) %> |
+                              <%= link_to 'Back', data_path %></div>
+
+
+                        <hr>
+
+                        <div>
+                            <div class="btn-group">
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Add to cart</button>
+                                <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
+                                <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="ibox-footer">
+                            <span class="pull-right">
+                                Full stock - <i class="fa fa-clock-o"></i> 14.04.2016 10:04 pm
+                            </span>
+                The generated Lorem Ipsum is therefore always free
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(window).load(function() {
+
+    $('.product-images').slick({
+        dots: true
+    });
+
+});
+
+</script>
+
+<% end %>
+
+<!-- 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @datum.product_model %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @datum.location %>
+</p>
+
+<p>
+  <strong>Tax:</strong>
+  <%= @datum.Tax %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @datum.product_class %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @datum.quantity %>
+</p>
+
+<p>
+  <strong>Minimum quantity:</strong>
+  <%= @datum.minimum_quantity %>
+</p>
+
+<p>
+  <strong>Sort order:</strong>
+  <%= @datum.sort_order %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @datum.status %>
+</p> -->
+
+
